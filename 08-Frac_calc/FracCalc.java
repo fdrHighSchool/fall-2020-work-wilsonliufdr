@@ -1,68 +1,116 @@
 import java.util.*;
-public class FracCalc {
+public class FracCalc2{
 
-    /**
-     * Prompts user for input, passes that input to produceAnswer, then outputs the result.
-     * @param args - unused
-     */
-    public static void main(String[] args){
-      Scanner s = new Scanner(System.in);
-      System.out.println("Enter your fraction here: ");
-      String frac = s.nextLine();
-      String answer = produceAnswer(frac);
-      System.out.println(answer);
-        // TODO: Read the input from the user and call produceAnswer with an equation
-        // Checkpoint 1: Create a Scanner, read one line of input, pass that input to produceAnswer, print the result.
-        // Checkpoint 2: Accept user input multiple times.
-    }//end main method
+  public static void main(String[] args){
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter a fraction equation or \"Q\" to quit");
+    String text = scanner.nextLine();
+    while(!text.equalsIgnoreCase("Q")){//while loop/code ends if user types "Q"
+      System.out.println(produceAnswer(text));
+      System.out.println("Enter a fraction equation or \"Q\" to quit");
+      text = scanner.nextLine();
+    }//while loop/code continues until the user types "Q".
+  }
 
-    /**
-     * produceAnswer - This function takes a String 'input' and produces the result.
-     * @param input - A fraction string that needs to be evaluated.  For your program, this will be the user input.
-     *      Example: input ==> "1/2 + 3/4"
-     * @return the result of the fraction after it has been calculated.
-     *      Example: return ==> "1_1/4"
-     */
-    public static String produceAnswer(String input){
-      int place = input.indexOf(" ");
-      int last = input.length();
-      String op1 = input.substring(0, place);
-      String op = input.substring(place + 1, place + 2);
-      String op2 = input.substring(place + 2, last);
-      return op2;
-  }//end leastCommonMultiple
-  // TODO: Implement this function to produce the solution to the input
-  // Checkpoint 1: Return the second operand.  Example "4/5 * 1_2/4" returns "1_2/4".
-  // Checkpoint 2: Return the second operand as a string representing each part.
-  //               Example "4/5 * 1_2/4" returns "whole:1 numerator:2 denominator:4".
-  // Checkpoint 3: Evaluate the formula and return the result as a fraction.
-  //               Example "4/5 * 1_2/4" returns "6/5".
-  //               Note: Answer does not need to be reduced, but it must be correct.
-  // Final project: All answers must be reduced.
-  //               Example "4/5 * 1_2/4" returns "1_1/5".
+  public static String produceAnswer(String input){
+    String operand1 = input.substring(0, input.indexOf(" "));//locate the first fraction
+    String operator = input.substring(input.indexOf(" ") + 1, input.indexOf(' ') + 2);//locate the operation
+    String operand2 = input.substring(input.indexOf(" ") + 3);//locate the second fraction
 
-  return "";
-}//end produceAnswer method
+    String operand1Whole = findWhole(operand1);//find fraction 1 whole
+    String operand1Numerator = findNumerator(operand1);//find fraction 1 numerator
+    String operand1Denominator = findDenominator(operand1);//find fraction 1 denominator
+    String operand2Whole = findWhole(operand2);//find fraction 2 whole
+    String operand2Numerator = findNumerator(operand2);//find fraction 2 numerator
+    String operand2Denominator = findDenominator(operand2);//find fraction 2 denominator
 
-// TODO: Fill in the space below with helper methods
+    int op1w = Integer.parseInt(operand1Whole);
+    int op1n = Integer.parseInt(operand1Numerator);
+    int op1d = Integer.parseInt(operand1Denominator);
+    int op2w = Integer.parseInt(operand2Whole);
+    int op2n = Integer.parseInt(operand2Numerator);
+    int op2d = Integer.parseInt(operand2Denominator);
+//convert those into integers
 
-/**
-* greatestCommonDivisor - Find the largest integer that evenly divides two integers.
-*      Use this helper method in the Final Checkpoint to reduce fractions.
-* @param a - First integer.
-* @param b - Second integer.
-* @return The GCD.
-*/
-public static int greatestCommonDivisor(int a, int b){
+    if(operator.equals("+")){
+      String solution = addition(op1w, op1n, op1d, op2w, op2n, op2d);
+      return(solution);
+    }//if operator is + it will add the fractions
+    if(operator.equals("-")){
+      String solution = subtraction(op1w, op1n, op1d, op2w, op2n, op2d);
+      return(solution);
+    }//if operator is = it will subtract the fractions
+    if(operator.equals("*")){
+      String solution = multiplication(op1w, op1n, op1d, op2w, op2n, op2d);
+      return(solution);
+    }//if operator is * it will multiply the fractions
+    if(operator.equals("/")){
+      String solution = division(op1w, op1n, op1d, op2w, op2n, op2d);
+      return(solution);
+    }//if operator is / it will divide the fractions
+    return operand2;//program is asking for a return statement so I added this, code still work fine. But doesn't without it?
+  }
 
-}//end greatestCommonDivisor method
+  public static String findWhole(String fraction){
+    if(fraction.contains("_")){
+      return fraction.substring(0, fraction.indexOf("_"));
+    }//if fraction contains a "_" then it's a mixed fraction. It will return the whole from 0 to "_"
+    else if(fraction.contains("/")){
+        return "0";
+    }//if fraction contains a "/" instead then it's a fraction. It will return a "0" because there is no whole number
+      else return fraction;
+  }//if fraction does not contain a "_" or "/" then it's a whole number. It will return the whole itself
 
-/**
-* leastCommonMultiple - Find the smallest integer that can be evenly divided by two integers.
-*      Use this helper method in Checkpoint 3 to evaluate expressions.
-* @param a - First integer.
-* @param b - Second integer.
-* @return The LCM.
-*/
-public static int leastCommonMultiple(int a, int b){
-}//end class
+  public static String findNumerator(String fraction){
+    if(fraction.contains("_")){
+      return fraction.substring(fraction.indexOf("_") + 1, fraction.indexOf("/"));
+    }//if fraction contains a "_" then it's a mixed fraction. It will return the numerator from "_" + 1 to "/"
+    else if(fraction.contains("/")){
+    return fraction.substring(0, fraction.indexOf("/"));
+  }//if fraction contains a "/" instead then it's a fraction. It will return the numerator from 0 to "/" because there is no whole
+    else{
+      return "0";
+    }//if fraction does not contain a "_" and "/", it will return 0 because there is no numerator.
+  }
+
+  public static String findDenominator(String fraction){
+    if(fraction.contains("/")){
+      return fraction.substring(fraction.indexOf("/") + 1);
+    }//if fraction contains a "/" instead then it's a fraction. It will return the denominator from "/" + 1
+    else{
+      return "1";
+    }//if fraction does not contain a "/", it will return 1 because there is no denominator
+  }
+
+  public static String addition(int op1w, int op1n, int op1d, int op2w, int op2n, int op2d){
+    int W = op1w + op2w;
+    int N = (op1n * op2d) + (op2n * op1d);
+    int D = op1d * op2d;
+    String solution  = W + "_" + N + "/" + D;
+    return solution;
+  }//method for adding
+
+  public static String subtraction(int op1w, int op1n, int op1d, int op2w, int op2n, int op2d){
+    int W = op1w - op2w;
+    int N = (op1n * op2d) - (op2n * op1d);
+    int D = op1d * op2d;
+    String solution  = W + "_" + N + "/" + D;
+    return solution;
+  }//method for subtracting
+
+  public static String multiplication(int op1w, int op1n, int op1d, int op2w, int op2n, int op2d){
+    int W = op1w * op2w;
+    int N = op1n * op2n;
+    int D = op1d * op2d;
+    String solution  = W + "_" + N + "/" + D;
+    return solution;
+  }//method for multiplying
+
+  public static String division(int op1w, int op1n, int op1d, int op2w, int op2n, int op2d){
+    int W = op1w / op2w;
+    int N = op1n / op2n;
+    int D = op1d / op2d;
+    String solution  = W + "_" + N + "/" + D;
+    return solution;
+  }//method for dividing
+}
