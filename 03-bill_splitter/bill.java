@@ -7,18 +7,17 @@ public class bill{
 		System.out.print("Enter the total, pre-tax: ");
 		double total = input.nextInt();
 
-		System.out.print("Enter tax: ");
-		double tax = input.nextInt();
-
-		System.out.print("Enter tip: ");
-		double tip = input.nextInt();
-
 		System.out.print("How many people? ");
 		int numPeople = input.nextInt();
+		double perPerson = total / numPeople;
 
-		double ttt = (total + tax + tip);
-		double perPerson = ttt / numPeople;
+		System.out.print("How much are you tipping?");
+		double tip = input.nextInt();
 
-		System.out.println("Each person must pay $" + perPerson);
-	}
+		System.out.print("How much percent tax are you paying: ");
+		double percentTax = input.nextInt();
+		double percent = total * (percentTax/100);
+
+		System.out.println("Each person must pay $" + perPerson + " " + "and $" + percent + " " + "tax" + " " + "and $" + tip + " " + "tip.");
+}
 }
