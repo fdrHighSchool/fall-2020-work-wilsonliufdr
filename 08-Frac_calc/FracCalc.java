@@ -1,5 +1,5 @@
 import java.util.*;
-public class FracCalc{
+public class FracCalc2{
 
   public static void main(String[] args){
     Scanner scanner = new Scanner(System.in);
