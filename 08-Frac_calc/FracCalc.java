@@ -1,19 +1,19 @@
 import java.util.*;
 public class FracCalc{
 
-	public static void main(String[] args){
-    Scanner scanner = new Scanner(System.in);
+public static void main(String[] args){
+  Scanner scanner = new Scanner(System.in);
+  System.out.println("Enter a fraction equation or \"Q\" to quit");
+  String text = scanner.nextLine();
+  while(!text.equalsIgnoreCase("Q")){//while loop/code ends if user types "Q"
+    System.out.println(produceAnswer(text));
     System.out.println("Enter a fraction equation or \"Q\" to quit");
-    String text = scanner.nextLine();
-    while(!text.equalsIgnoreCase("Q")){//while loop/code ends if user types "Q"
-      System.out.println(produceAnswer(text));
-      System.out.println("Enter a fraction equation or \"Q\" to quit");
-      text = scanner.nextLine();
-    }//while loop/code continues until the user types "Q".
-  }
+    text = scanner.nextLine();
+  	}//while loop/code continues until the user types "Q".
+	}
 
 	public static String produceAnswer(String input){
-    String operand1 = input.substring(0, input.indexOf(" "));//locate the first fraction
+		String operand1 = input.substring(0, input.indexOf(" "));//locate the first fraction
     String operator = input.substring(input.indexOf(" ") + 1, input.indexOf(' ') + 2);//locate the operation
     String operand2 = input.substring(input.indexOf(" ") + 3);//locate the second fraction
 
