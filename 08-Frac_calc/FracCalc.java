@@ -24,14 +24,14 @@ public class FracCalc {
         String operand2Numerator = findNumerator(operand2); //find fraction 2 numerator
         String operand2Denominator = findDenominator(operand2); //find fraction 2 denominator
 
-        int op1w = Integer.parseInt(operand1Whole);
+        int op1w = Integer.parseInt(operand1Whole); //convert string into int
         int op1n = Integer.parseInt(operand1Numerator);
         int op1d = Integer.parseInt(operand1Denominator);
         int op2w = Integer.parseInt(operand2Whole);
         int op2n = Integer.parseInt(operand2Numerator);
         int op2d = Integer.parseInt(operand2Denominator);
 
-        op1n = (op1w * op1d) + op1n;
+        op1n = (op1w * op1d) + op1n; //convert into improper fraction
         op2n = (op2w * op2d) + op2n;
 
         if (operator.equals("+")) {
