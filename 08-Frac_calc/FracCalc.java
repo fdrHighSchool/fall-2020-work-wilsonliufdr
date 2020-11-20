@@ -102,7 +102,7 @@ public class FracCalc{
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
         if (mixedW >= 1){
-          String solution = mixedW + "_" + reducedN + "/" + reducedD;
+          String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
         else if (mixedW >= 0){
@@ -126,7 +126,7 @@ public class FracCalc{
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
         if (mixedW >= 1){
-          String solution = mixedW + "_" + reducedN + "/" + reducedD;
+          String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
         else if (mixedW >= 0){
@@ -150,7 +150,7 @@ public class FracCalc{
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
         if (mixedW >= 1){
-          String solution = mixedW + "_" + reducedN + "/" + reducedD;
+          String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
         else if (mixedW >= 0){
@@ -174,7 +174,7 @@ public class FracCalc{
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
         if (mixedW >= 1){
-          String solution = mixedW + "_" + reducedN + "/" + reducedD;
+          String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
         else if (mixedW >= 0){
