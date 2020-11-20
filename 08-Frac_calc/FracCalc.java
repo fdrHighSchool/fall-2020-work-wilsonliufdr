@@ -34,6 +34,11 @@ public class FracCalc {
         op1n = (op1w * op1d) + op1n; //equation for converting into improper fraction
         op2n = (op2w * op2d) + op2n;
 
+        if (op1d == 0 | op2d == 0){
+          String undefined = "Cannot divide by zero";
+          return undefined;
+        }//if denominator equals 0, it will return an error saying cannot divide by zero.
+
         if (operator.equals("+")) {
             String solution = addition(op1n, op1d, op2n, op2d);
             return (solution);
