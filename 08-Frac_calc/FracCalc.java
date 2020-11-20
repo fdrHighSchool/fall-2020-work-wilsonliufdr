@@ -105,7 +105,8 @@ public class FracCalc {
         for (int i = 1; i<=N && i<=D; i++){
           if(N%i==0 && D%i==0)
           gcd = i;
-        }//loop for reducing
+        }//What this loop does is that it i will start from 1, it will continue to go up until it reach the smallest number of either N or D.
+        //Then it will find a number that can divide both number and that number will be restored as the gcd.
         int newN = N/gcd;
         int newD = D/gcd;
         String solution = newN + "/" + newD;
@@ -119,7 +120,8 @@ public class FracCalc {
         for (int i = 1; i<=N && i<=D; i++){
           if(N%i==0 && D%i==0)
           gcd = i;
-        }//loop for reducing
+        }//What this loop does is that it i will start from 1, it will continue to go up until it reach the smallest number of either N or D.
+        //Then it will find a number that can divide both number and that number will be restored as the gcd.
         int newN = N/gcd;
         int newD = D/gcd;
         String solution = newN + "/" + newD;
@@ -133,7 +135,8 @@ public class FracCalc {
         for (int i = 1; i<=N && i<=D; i++){
           if(N%i==0 && D%i==0)
           gcd = i;
-        }//loop for reducing
+        }//What this loop does is that it i will start from 1, it will continue to go up until it reach the smallest number of either N or D.
+        //Then it will find a number that can divide both number and that number will be restored as the gcd.
         int newN = N/gcd;
         int newD = D/gcd;
         String solution = newN + "/" + newD;
