@@ -31,7 +31,7 @@ public class FracCalc {
         int op2n = Integer.parseInt(operand2Numerator);
         int op2d = Integer.parseInt(operand2Denominator);
 
-        op1n = (op1w * op1d) + op1n; //convert into improper fraction
+        op1n = (op1w * op1d) + op1n; //equation for converting into improper fraction
         op2n = (op2w * op2d) + op2n;
 
         if (operator.equals("+")) {
@@ -50,7 +50,7 @@ public class FracCalc {
             String solution = division(op1n, op1d, op2n, op2d);
             return (solution);
         } //if operator is / it will divide the fractions
-        return operand2; //program is asking for a return statement so I added this, code still work fine. But doesn't without it?
+        return operand2; //checkpoint2
     }
 
     public static String findWhole(String fraction) {
@@ -86,28 +86,57 @@ public class FracCalc {
     public static String addition(int op1n, int op1d, int op2n, int op2d) {
         int N = (op1n * op2d) + (op2n * op1d);
         int D = op1d * op2d;
-        String solution = N + "/" + D;
+        int gcd = 1;
+        for (int i = 1; i<=N && i<=D; i++){
+          if(N%i==0 && D%i==0)
+          gcd = i;
+        }//What this loop does is that it i will start from 1, it will continue to go up until it reach the smallest number of either N or D.
+        //Then it will find a number that can divide both number and that number will be restored as the gcd.
+        int newN = N/gcd;
+        int newD = D/gcd;
+        String solution = newN + "/" + newD;
         return solution;
     } //method for adding
 
     public static String subtraction(int op1n, int op1d, int op2n, int op2d) {
         int N = (op1n * op2d) - (op2n * op1d);
         int D = op1d * op2d;
-        String solution = N + "/" + D;
+        int gcd = 1;
+        for (int i = 1; i<=N && i<=D; i++){
+          if(N%i==0 && D%i==0)
+          gcd = i;
+        }//loop for reducing
+        int newN = N/gcd;
+        int newD = D/gcd;
+        String solution = newN + "/" + newD;
         return solution;
     } //method for subtracting
 
     public static String multiplication(int op1n, int op1d, int op2n, int op2d) {
         int N = op1n * op2n;
         int D = op1d * op2d;
-        String solution = N + "/" + D;
+        int gcd = 1;
+        for (int i = 1; i<=N && i<=D; i++){
+          if(N%i==0 && D%i==0)
+          gcd = i;
+        }//loop for reducing
+        int newN = N/gcd;
+        int newD = D/gcd;
+        String solution = newN + "/" + newD;
         return solution;
     } //method for multiplying
 
     public static String division(int op1n, int op1d, int op2n, int op2d) {
         int N = op1n / op2n;
         int D = op1d / op2d;
-        String solution = N + "/" + D;
+        int gcd = 1;
+        for (int i = 1; i<=N && i<=D; i++){
+          if(N%i==0 && D%i==0)
+          gcd = i;
+        }//loop for reducing
+        int newN = N/gcd;
+        int newD = D/gcd;
+        String solution = newN + "/" + newD;
         return solution;
     } //method for dividing
 }
