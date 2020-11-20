@@ -101,7 +101,12 @@ public class FracCalc{
         int reducedD = D/gcd;
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
-        if (mixedW >= 1){
+
+        if (mixedN == 0){
+          String solution = mixedW + "";
+          return solution;
+        }//if numerator equals 0 that means it's a whole number
+        else if (mixedW >= 1){
           String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
@@ -125,7 +130,12 @@ public class FracCalc{
         int reducedD = D/gcd;
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
-        if (mixedW >= 1){
+
+        if (mixedN == 0){
+          String solution = mixedW + "";
+          return solution;
+        }//if numerator equals 0 that means it's a whole number
+        else if (mixedW >= 1){
           String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
@@ -149,7 +159,12 @@ public class FracCalc{
         int reducedD = D/gcd;
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
-        if (mixedW >= 1){
+
+        if (mixedN == 0){
+          String solution = mixedW + "";
+          return solution;
+        }//if numerator equals 0 that means it's a whole number
+        else if (mixedW >= 1){
           String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
@@ -173,7 +188,12 @@ public class FracCalc{
         int reducedD = D/gcd;
         int mixedW = reducedN/reducedD;
         int mixedN = reducedN%reducedD;
-        if (mixedW >= 1){
+
+        if (mixedN == 0){
+          String solution = mixedW + "";
+          return solution;
+        }//if numerator equals 0 that means it's a whole number
+        else if (mixedW >= 1){
           String solution = mixedW + "_" + mixedN + "/" + reducedD;
           return solution;
         }//if whole is greater than 1 that means it's a mixed number
