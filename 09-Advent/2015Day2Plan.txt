@@ -1,0 +1,6 @@
+Advent of code 2015 day 2 plan
+
+- Create a scanner object and then store my puzzle input
+- Setup a loop that can distinguish all the inputs.
+- Caluate the input for how many square feet of wrapping paper they need
+- Return and print the solution
