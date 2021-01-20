@@ -2,33 +2,34 @@ import java.util.*;
 
 public class shop {
   private String name;
-  private int amount;
   private double cost;
+  private int amount;
   private double total;
 
-  public shop(String n, int a, double c){
+  public shop(String n, double c, int a){
     this.name = n;
-    this.amount = a;
     this.cost = c;
+    this.amount = a;
   }
 
   public String getName(){
     return this.name;
   }
 
-  public int getAmount(){
-    return this.amount;
-  }
-
   public double getCost(){
     return this.cost;
   }
 
-  public double getTotal(){
-    this.total = this.cost * this.amount;
+  public int getAmount(){
+    return this.amount;
+  }
+
+  public double calculateTotal(){
+    this.total = this.amount * this.cost;
     return this.total;
   }
+
   public String toString(){
-    return "item: " + this.name + ", Amount: " + this.amount + ", Cost: $" + this.cost + ", Total: $" + getTotal();
+    return "item: " + this.name + "\nAmount: " + this.amount + "\nCost per item: " + this.cost + "\nTotal cost: " + calculateTotal();
   }
 }

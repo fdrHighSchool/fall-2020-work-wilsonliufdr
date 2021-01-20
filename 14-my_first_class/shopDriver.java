@@ -1,12 +1,22 @@
+import java.util.*;
+
 public class shopDriver {
   public static void main(String[] args){
-    shop shop1 = new shop("Rock", 2, 0.99);
-    System.out.println(shop1);
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("What would you like to buy\n1.Rock\n2.Rubbish");
+    int res = scanner.nextInt();
 
-    shop shop2 = new shop("Stick", 5, 1.99);
-    System.out.println(shop2);
+    if(res == 1){
+      shop shop1 = new shop("Rubbish", 0.1, 2);
+      System.out.println(shop1);
 
-    shop shop3 = new shop("Rubbish", 20, 0.01);
-    System.out.println(shop3);
+    }
+    else if(res == 2){
+      shop shop2 = new shop("Rock", 0.9, 3);
+      System.out.println(shop2);
+    }
+    else{
+      System.out.println("Error: Enter a number that's either 1 or 2");
+    }
   }
 }
